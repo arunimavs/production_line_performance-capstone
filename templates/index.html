@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Production line performance App</title>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='js/jquery.js') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+    integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+    integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+    integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <div class="drag-text">
+    <br>
+    <br>
+    <h1>PRODUCTION LINE PERFORMANCE TEST</h1>
+    <br>
+    <br>
+    <p> To ensure the production of advanced mechanical components are of the highest quality and safety standards, we
+      should be closely monitoring its parts as they progress through the manufacturing processes.
+      Note down the monitored parts dimensions, assembly line parts and station details. Upload the CSV file of noted
+      dimensions to predict whether the parts will become faulty or not faulty as per the dimension.</p>
+    <br>
+    <p> <b>Note :</b> CSV file should be of <a
+        href="https://www.kaggle.com/c/bosch-production-line-performance/data">Bosch production line performance</a>
+      dataset structure. </p>
+  </div>
+  <form method="POST" action="" enctype="multipart/form-data">
+    <div class="image-upload-wrap">
+      <p><input class="file-upload-input" type="file" name="file" /></p>
+      <div class="drag-text">
+        <h3>Drag and drop a file</h3>
+      </div>
+    </div>
+    <div class="file-upload"><input type="submit" class="file-upload-btn" name="submit" value="Submit"></div>
+  </form>
+
+  {% if fileupload %}
+
+  <div class="drag-text">
+
+    {{table | safe}}
+
+  </div>
+
+  {% endif %}
+</body>
+
+</html>
