@@ -15,8 +15,9 @@ app.config["DEBUG"] = True
 # Upload folder
 UPLOAD_FOLDER = 'static/files/'
 app.config['UPLOAD_FOLDER'] =  UPLOAD_FOLDER
-pickle_in = open("model.pkl","rb")
-classifier=pickle.load(pickle_in)
+# pickle_in = open("model.pkl","rb")
+# classifier=pickle.load(pickle_in)
+classifier=pickle.loads(open('model.pkl', 'rb').read())
 
 @app.errorhandler(404)
 def error404(error):
